@@ -11,13 +11,11 @@ weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
   messageOne.textContent = 'Loading...';
   messageTwo.textContent = '';
-  axios
-    .get(`http://localhost:3000/weather?address=${searchLocation.value}`)
-    .then((res) => {
-      res.data.error
-        ? (messageOne.textContent = res.data.error)
-        : ((messageOne.textContent = res.data.location),
-          (messageTwo.textContent = res.data.forecast));
-    });
+  axios.get(`/weather?address=${searchLocation.value}`).then((res) => {
+    res.data.error
+      ? (messageOne.textContent = res.data.error)
+      : ((messageOne.textContent = res.data.location),
+        (messageTwo.textContent = res.data.forecast));
+  });
   searchLocation.value = '';
 });
