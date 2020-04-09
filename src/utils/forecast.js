@@ -10,7 +10,8 @@ const forecast = (longitude, latitude, callback) => {
     } else {
       callback(
         undefined,
-        `It is currently ${body.main.temp} degrees out. There is ${body.clouds.all}% chain of rain.`
+        `It is currently ${body.main.temp} degrees out. There is ${body.clouds.all}% chain of rain.
+        The humidity is ${body.main.humidity} and the wind speed is ${body.wind.speed} m/hr`
       );
     }
   });
